@@ -16,6 +16,8 @@ namespace XSLXTransformer
         static string mypath = "url-here";
         static string fileName = "file name(with extension here";
         static string fileextension = "*.extension";
+        static string toLanguage = "en";//English
+        static string fromLanguage = "de";//Deutsch
         static void Main(string[] args)
         {
             try
@@ -54,7 +56,7 @@ namespace XSLXTransformer
 
                         }
                     
-                      p.SaveAs(new FileInfo(mypath+ file));
+                      p.SaveAs(new FileInfo(mypath+ fileName));
                     }
                 }
 
@@ -67,8 +69,7 @@ namespace XSLXTransformer
             }
             static String Translate(String word)
             {
-                var toLanguage = "en";//English
-                var fromLanguage = "de";//Deutsch
+          
                 var url = $"https://translate.googleapis.com/translate_a/single?client=gtx&sl={fromLanguage}&tl={toLanguage}&dt=t&q={HttpUtility.UrlEncode(word)}";
                 var webClient = new WebClient
                 {
